@@ -25,7 +25,7 @@ headers = {
 
 llm = ChatOpenAI(
     temperature=0,
-    model_name="gpt-4o-mini"
+    model_name="gpt-4o-mini",
     api_key=headers["authorization"]  
 )
 
