@@ -16,10 +16,17 @@ from langchain_core.output_parsers import JsonOutputParser, StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from typing import Dict, List, Optional, Union
 from pydantic import BaseModel, Field
+import streamlit as st
+
+headers = {
+    "authorization": st.secrets['auth_token'],
+    "content-type": "application/json"
+    }
 
 llm = ChatOpenAI(
     temperature=0,
-    model_name="gpt-4o-mini"  
+    model_name="gpt-4o-mini"
+    api_key=headers["authorization"]  
 )
 
 class WarningLetterInfo(BaseModel):
